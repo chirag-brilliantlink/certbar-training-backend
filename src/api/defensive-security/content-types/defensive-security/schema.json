@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "defensive_securities",
+  "info": {
+    "singularName": "defensive-security",
+    "pluralName": "defensive-securities",
+    "displayName": "Defensive-Security"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "defensive_security_page": {
+      "type": "dynamiczone",
+      "components": [
+        "shared.image-with-button-section",
+        "shared.time-course-section"
+      ]
+    },
+    "slug": {
+      "type": "uid"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    }
+  }
+}

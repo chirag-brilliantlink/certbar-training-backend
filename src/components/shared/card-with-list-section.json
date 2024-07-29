@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_shared_card_with_list_sections",
+  "info": {
+    "displayName": "CardWithListSection"
+  },
+  "options": {},
+  "attributes": {
+    "header": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "CardWithList": {
+      "displayName": "CardList",
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.card-list"
+    }
+  }
+}

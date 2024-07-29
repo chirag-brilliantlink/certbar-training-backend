@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_dropdown_with_images",
+  "info": {
+    "displayName": "DropdownWithImage",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "header": {
+      "type": "string"
+    },
+    "DropDown": {
+      "displayName": "DropDownSection",
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.drop-down-section"
+    }
+  }
+}

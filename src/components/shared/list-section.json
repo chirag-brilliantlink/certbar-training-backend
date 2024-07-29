@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_shared_list_sections",
+  "info": {
+    "displayName": "ListSection"
+  },
+  "options": {},
+  "attributes": {
+    "ValueName": {
+      "type": "text"
+    }
+  }
+}

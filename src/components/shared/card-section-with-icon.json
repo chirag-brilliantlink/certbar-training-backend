@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_shared_card_section_with_icons",
+  "info": {
+    "displayName": "CardSectionWithIcon",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "header": {
+      "type": "string"
+    },
+    "HomeCardSection": {
+      "displayName": "CardSection",
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.card-section"
+    },
+    "CardButton": {
+      "type": "component",
+      "repeatable": false,
+      "component": "gradient-button.gradientbutton"
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}

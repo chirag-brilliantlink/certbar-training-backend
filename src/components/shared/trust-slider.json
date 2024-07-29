@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_shared_trust_sliders",
+  "info": {
+    "displayName": "TrustSlider"
+  },
+  "options": {},
+  "attributes": {
+    "header": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "Trustimages": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

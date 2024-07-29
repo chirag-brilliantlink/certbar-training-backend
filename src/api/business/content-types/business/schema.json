@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "businesses",
+  "info": {
+    "singularName": "business",
+    "pluralName": "businesses",
+    "displayName": "Business",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "business_page": {
+      "type": "dynamiczone",
+      "components": [
+        "shared.image-with-button-section",
+        "shared.trust-slider",
+        "shared.time-course-section",
+        "shared.card-section-with-icon"
+      ]
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    }
+  }
+}

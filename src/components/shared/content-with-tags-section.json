@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_shared_content_with_tags_sections",
+  "info": {
+    "displayName": "ContentWithTagsSection"
+  },
+  "options": {},
+  "attributes": {
+    "header": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "Tags": {
+      "displayName": "TagsSection",
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.tags-section"
+    }
+  }
+}

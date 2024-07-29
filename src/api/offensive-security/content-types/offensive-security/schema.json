@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "offensive_securities",
+  "info": {
+    "singularName": "offensive-security",
+    "pluralName": "offensive-securities",
+    "displayName": "Offensive-Security"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "offensive_security_page": {
+      "type": "dynamiczone",
+      "components": [
+        "shared.time-course-section",
+        "shared.image-with-button-section"
+      ]
+    },
+    "slug": {
+      "type": "uid"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    }
+  }
+}

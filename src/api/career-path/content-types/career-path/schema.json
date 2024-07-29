@@ -1,0 +1,28 @@
+{
+  "kind": "singleType",
+  "collectionName": "career_paths",
+  "info": {
+    "singularName": "career-path",
+    "pluralName": "career-paths",
+    "displayName": "Career-path",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "career_path_page": {
+      "type": "dynamiczone",
+      "components": [
+        "shared.image-with-button-section",
+        "shared.card-section-with-icon"
+      ]
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_shared_time_course_sections",
+  "info": {
+    "displayName": "TimeCourseSection",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "CourseTime": {
+      "displayName": "TimeSection",
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.time-section"
+    },
+    "header": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}

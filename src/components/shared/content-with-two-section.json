@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_shared_content_with_two_sections",
+  "info": {
+    "displayName": "ContentWithTwoSection"
+  },
+  "options": {},
+  "attributes": {
+    "header_left": {
+      "type": "string"
+    },
+    "description_left": {
+      "type": "blocks"
+    },
+    "header_right": {
+      "type": "string"
+    },
+    "description_right": {
+      "type": "blocks"
+    }
+  }
+}

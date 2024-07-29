@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_shared_team_popups",
+  "info": {
+    "displayName": "TeamPopup",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Qualification": {
+      "type": "string"
+    },
+    "Position": {
+      "type": "text"
+    },
+    "Photo": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "PhotoAlt": {
+      "type": "string"
+    }
+  }
+}

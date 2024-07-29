@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_shared_categories",
+  "info": {
+    "displayName": "category"
+  },
+  "options": {},
+  "attributes": {
+    "subCategories": {
+      "type": "string"
+    },
+    "LinkTo": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_shared_time_sections",
+  "info": {
+    "displayName": "TimeSection"
+  },
+  "options": {},
+  "attributes": {
+    "ValueName": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_shared_team_popup_sections",
+  "info": {
+    "displayName": "TeamPopupSection",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "TeamPopupSection": {
+      "displayName": "TeamPopup",
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.team-popup"
+    },
+    "header": {
+      "type": "string"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "gradient-button.gradientbutton"
+    }
+  }
+}

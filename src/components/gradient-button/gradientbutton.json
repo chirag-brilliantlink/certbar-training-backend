@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_gradient_button_gradientbuttons",
+  "info": {
+    "displayName": "gradientbutton",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "ValueName": {
+      "type": "string"
+    },
+    "LinkTo": {
+      "type": "string"
+    },
+    "Variant": {
+      "type": "string"
+    }
+  }
+}

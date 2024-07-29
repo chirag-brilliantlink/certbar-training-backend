@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_shared_content_with_one_sections",
+  "info": {
+    "displayName": "ContentWithOneSection"
+  },
+  "options": {},
+  "attributes": {
+    "header": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    }
+  }
+}

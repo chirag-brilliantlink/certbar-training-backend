@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "business_navs",
+  "info": {
+    "singularName": "business-nav",
+    "pluralName": "business-navs",
+    "displayName": "Business-nav",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Category": {
+      "type": "string"
+    },
+    "LinkTo": {
+      "type": "string"
+    },
+    "sub_category": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.category"
+    }
+  }
+}

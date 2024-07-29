@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "ethical_hackings",
+  "info": {
+    "singularName": "ethical-hacking",
+    "pluralName": "ethical-hackings",
+    "displayName": "Ethical-hacking",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ethical_hacking": {
+      "type": "dynamiczone",
+      "components": [
+        "shared.card-with-list-section",
+        "shared.content-with-two-section",
+        "shared.content-with-one-section",
+        "shared.content-with-tags-section",
+        "shared.image-with-button-section"
+      ]
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    }
+  }
+}

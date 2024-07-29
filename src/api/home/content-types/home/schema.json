@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "homes",
+  "info": {
+    "singularName": "home",
+    "pluralName": "homes",
+    "displayName": "Home",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "home_page": {
+      "type": "dynamiczone",
+      "components": [
+        "shared.image-with-button-section",
+        "shared.trust-slider",
+        "shared.dropdown-with-image",
+        "shared.card-section-with-icon",
+        "shared.team-popup-section"
+      ]
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    }
+  }
+}

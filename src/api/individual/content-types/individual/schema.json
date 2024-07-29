@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "individuals",
+  "info": {
+    "singularName": "individual",
+    "pluralName": "individuals",
+    "displayName": "individual",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Category": {
+      "type": "string"
+    },
+    "sub_category": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.category"
+    },
+    "LinkTo": {
+      "type": "string"
+    }
+  }
+}
