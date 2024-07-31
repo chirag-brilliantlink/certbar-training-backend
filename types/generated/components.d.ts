@@ -202,7 +202,7 @@ export interface SharedCoursesDynamicSection extends Schema.Component {
     header: Attribute.String;
     description: Attribute.Blocks;
     LinkTo: Attribute.String;
-    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     ImageAlt: Attribute.String;
   };
 }
