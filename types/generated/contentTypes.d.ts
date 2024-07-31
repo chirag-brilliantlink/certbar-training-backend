@@ -987,7 +987,8 @@ export interface ApiHomeHome extends Schema.SingleType {
         'shared.trust-slider',
         'shared.dropdown-with-image',
         'shared.card-section-with-icon',
-        'shared.team-popup-section'
+        'shared.team-popup-section',
+        'shared.courses-section'
       ]
     >;
     seo: Attribute.Component<'shared.seo'>;

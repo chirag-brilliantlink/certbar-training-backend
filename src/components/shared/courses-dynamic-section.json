@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_shared_courses_dynamic_sections",
+  "info": {
+    "displayName": "CoursesDynamicSection",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "header": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "LinkTo": {
+      "type": "string"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "ImageAlt": {
+      "type": "string"
+    }
+  }
+}

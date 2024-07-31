@@ -178,6 +178,35 @@ export interface SharedDropDownSection extends Schema.Component {
   };
 }
 
+export interface SharedCoursesSection extends Schema.Component {
+  collectionName: 'components_shared_courses_sections';
+  info: {
+    displayName: 'CoursesSection';
+    description: '';
+  };
+  attributes: {
+    Header: Attribute.String;
+    LinkTo: Attribute.String;
+    Courses: Attribute.Component<'shared.courses-dynamic-section', true>;
+    button: Attribute.Component<'gradient-button.gradientbutton'>;
+  };
+}
+
+export interface SharedCoursesDynamicSection extends Schema.Component {
+  collectionName: 'components_shared_courses_dynamic_sections';
+  info: {
+    displayName: 'CoursesDynamicSection';
+    description: '';
+  };
+  attributes: {
+    header: Attribute.String;
+    description: Attribute.Blocks;
+    LinkTo: Attribute.String;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    ImageAlt: Attribute.String;
+  };
+}
+
 export interface SharedContentWithTwoSection extends Schema.Component {
   collectionName: 'components_shared_content_with_two_sections';
   info: {
@@ -286,6 +315,7 @@ export interface GradientButtonGradientbutton extends Schema.Component {
     ValueName: Attribute.String;
     LinkTo: Attribute.String;
     Variant: Attribute.String;
+    position: Attribute.Boolean;
   };
 }
 
@@ -304,6 +334,8 @@ declare module '@strapi/types' {
       'shared.image-with-button-section': SharedImageWithButtonSection;
       'shared.dropdown-with-image': SharedDropdownWithImage;
       'shared.drop-down-section': SharedDropDownSection;
+      'shared.courses-section': SharedCoursesSection;
+      'shared.courses-dynamic-section': SharedCoursesDynamicSection;
       'shared.content-with-two-section': SharedContentWithTwoSection;
       'shared.content-with-tags-section': SharedContentWithTagsSection;
       'shared.content-with-one-section': SharedContentWithOneSection;

@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_shared_courses_sections",
+  "info": {
+    "displayName": "CoursesSection",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Header": {
+      "type": "string"
+    },
+    "LinkTo": {
+      "type": "string"
+    },
+    "Courses": {
+      "displayName": "CoursesDynamicSection",
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.courses-dynamic-section"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "gradient-button.gradientbutton"
+    }
+  }
+}
