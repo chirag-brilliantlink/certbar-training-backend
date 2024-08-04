@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sub_individuals",
+  "info": {
+    "singularName": "sub-individual",
+    "pluralName": "sub-individuals",
+    "displayName": "subIndividual",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "sub_field_context": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "sub_field_context"
+    }
+  }
+}

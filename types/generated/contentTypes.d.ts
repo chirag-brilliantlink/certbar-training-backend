@@ -805,7 +805,8 @@ export interface ApiBusinessBusiness extends Schema.SingleType {
         'shared.image-with-button-section',
         'shared.trust-slider',
         'shared.time-course-section',
-        'shared.card-section-with-icon'
+        'shared.content-with-one-section',
+        'shared.content-with-tags-section'
       ]
     >;
     seo: Attribute.Component<'shared.seo'>;
@@ -842,6 +843,7 @@ export interface ApiBusinessNavBusinessNav extends Schema.CollectionType {
     Category: Attribute.String;
     LinkTo: Attribute.String;
     sub_category: Attribute.Component<'shared.category', true>;
+    description: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -873,7 +875,11 @@ export interface ApiCareerPathCareerPath extends Schema.SingleType {
   };
   attributes: {
     career_path_page: Attribute.DynamicZone<
-      ['shared.image-with-button-section', 'shared.card-section-with-icon']
+      [
+        'shared.image-with-button-section',
+        'shared.card-section-with-icon',
+        'shared.courses-section'
+      ]
     >;
     seo: Attribute.Component<'shared.seo'>;
     createdAt: Attribute.DateTime;
@@ -901,16 +907,26 @@ export interface ApiDefensiveSecurityDefensiveSecurity
     singularName: 'defensive-security';
     pluralName: 'defensive-securities';
     displayName: 'Defensive-Security';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     defensive_security_page: Attribute.DynamicZone<
-      ['shared.image-with-button-section', 'shared.time-course-section']
+      [
+        'shared.image-with-button-section',
+        'shared.time-course-section',
+        'shared.content-with-one-section'
+      ]
     >;
     slug: Attribute.UID;
     seo: Attribute.Component<'shared.seo'>;
+    sub_individuals: Attribute.Relation<
+      'api::defensive-security.defensive-security',
+      'oneToMany',
+      'api::sub-individual.sub-individual'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1015,8 +1031,13 @@ export interface ApiIndividualIndividual extends Schema.CollectionType {
   };
   attributes: {
     Category: Attribute.String;
-    sub_category: Attribute.Component<'shared.category', true>;
     LinkTo: Attribute.String;
+    description: Attribute.Text;
+    sub_individuals: Attribute.Relation<
+      'api::individual.individual',
+      'oneToMany',
+      'api::sub-individual.sub-individual'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1042,16 +1063,26 @@ export interface ApiOffensiveSecurityOffensiveSecurity
     singularName: 'offensive-security';
     pluralName: 'offensive-securities';
     displayName: 'Offensive-Security';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     offensive_security_page: Attribute.DynamicZone<
-      ['shared.time-course-section', 'shared.image-with-button-section']
+      [
+        'shared.time-course-section',
+        'shared.image-with-button-section',
+        'shared.content-with-one-section'
+      ]
     >;
     slug: Attribute.UID;
     seo: Attribute.Component<'shared.seo'>;
+    sub_individuals: Attribute.Relation<
+      'api::offensive-security.offensive-security',
+      'oneToMany',
+      'api::sub-individual.sub-individual'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1063,6 +1094,41 @@ export interface ApiOffensiveSecurityOffensiveSecurity
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::offensive-security.offensive-security',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSubIndividualSubIndividual extends Schema.CollectionType {
+  collectionName: 'sub_individuals';
+  info: {
+    singularName: 'sub-individual';
+    pluralName: 'sub-individuals';
+    displayName: 'subIndividual';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    sub_field_context: Attribute.String;
+    slug: Attribute.UID<
+      'api::sub-individual.sub-individual',
+      'sub_field_context'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::sub-individual.sub-individual',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::sub-individual.sub-individual',
       'oneToOne',
       'admin::user'
     > &
@@ -1096,6 +1162,7 @@ declare module '@strapi/types' {
       'api::home.home': ApiHomeHome;
       'api::individual.individual': ApiIndividualIndividual;
       'api::offensive-security.offensive-security': ApiOffensiveSecurityOffensiveSecurity;
+      'api::sub-individual.sub-individual': ApiSubIndividualSubIndividual;
     }
   }
 }

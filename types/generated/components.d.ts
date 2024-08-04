@@ -77,6 +77,16 @@ export interface SharedTagsSection extends Schema.Component {
   };
 }
 
+export interface SharedSubCategory extends Schema.Component {
+  collectionName: 'components_shared_sub_categories';
+  info: {
+    displayName: 'sub_category';
+  };
+  attributes: {
+    sub_category: Attribute.String;
+  };
+}
+
 export interface SharedSeo extends Schema.Component {
   collectionName: 'components_shared_seos';
   info: {
@@ -140,13 +150,13 @@ export interface SharedImageWithButtonSection extends Schema.Component {
   collectionName: 'components_shared_image_with_button_sections';
   info: {
     displayName: 'ImageWithButtonSection';
+    description: '';
   };
   attributes: {
     header: Attribute.String & Attribute.Required;
     GradientButton: Attribute.Component<'gradient-button.gradientbutton', true>;
-    ImageSection: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
-      Attribute.Required;
-    ImageSectionUlt: Attribute.String & Attribute.Required;
+    ImageSection: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    ImageSectionUlt: Attribute.String;
     ImageSectionPosition: Attribute.Boolean;
     description: Attribute.Blocks & Attribute.Required;
   };
@@ -189,6 +199,7 @@ export interface SharedCoursesSection extends Schema.Component {
     LinkTo: Attribute.String;
     Courses: Attribute.Component<'shared.courses-dynamic-section', true>;
     button: Attribute.Component<'gradient-button.gradientbutton'>;
+    description: Attribute.Text;
   };
 }
 
@@ -236,10 +247,12 @@ export interface SharedContentWithOneSection extends Schema.Component {
   collectionName: 'components_shared_content_with_one_sections';
   info: {
     displayName: 'ContentWithOneSection';
+    description: '';
   };
   attributes: {
     header: Attribute.String;
     description: Attribute.Blocks;
+    button: Attribute.Component<'gradient-button.gradientbutton'>;
   };
 }
 
@@ -328,6 +341,7 @@ declare module '@strapi/types' {
       'shared.team-popup': SharedTeamPopup;
       'shared.team-popup-section': SharedTeamPopupSection;
       'shared.tags-section': SharedTagsSection;
+      'shared.sub-category': SharedSubCategory;
       'shared.seo': SharedSeo;
       'shared.meta-social': SharedMetaSocial;
       'shared.list-section': SharedListSection;

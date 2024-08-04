@@ -22,6 +22,9 @@
       "type": "component",
       "repeatable": false,
       "component": "gradient-button.gradientbutton"
+    },
+    "description": {
+      "type": "text"
     }
   }
 }

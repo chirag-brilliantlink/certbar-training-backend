@@ -1,7 +1,8 @@
 {
   "collectionName": "components_shared_image_with_button_sections",
   "info": {
-    "displayName": "ImageWithButtonSection"
+    "displayName": "ImageWithButtonSection",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -16,19 +17,19 @@
       "component": "gradient-button.gradientbutton"
     },
     "ImageSection": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false,
-      "required": true
+      ]
     },
     "ImageSectionUlt": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "ImageSectionPosition": {
       "type": "boolean"

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "defensive-security",
     "pluralName": "defensive-securities",
-    "displayName": "Defensive-Security"
+    "displayName": "Defensive-Security",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,7 +16,8 @@
       "type": "dynamiczone",
       "components": [
         "shared.image-with-button-section",
-        "shared.time-course-section"
+        "shared.time-course-section",
+        "shared.content-with-one-section"
       ]
     },
     "slug": {
@@ -25,6 +27,11 @@
       "type": "component",
       "repeatable": false,
       "component": "shared.seo"
+    },
+    "sub_individuals": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::sub-individual.sub-individual"
     }
   }
 }

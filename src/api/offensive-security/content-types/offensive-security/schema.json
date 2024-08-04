@@ -4,7 +4,8 @@
   "info": {
     "singularName": "offensive-security",
     "pluralName": "offensive-securities",
-    "displayName": "Offensive-Security"
+    "displayName": "Offensive-Security",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,7 +16,8 @@
       "type": "dynamiczone",
       "components": [
         "shared.time-course-section",
-        "shared.image-with-button-section"
+        "shared.image-with-button-section",
+        "shared.content-with-one-section"
       ]
     },
     "slug": {
@@ -25,6 +27,11 @@
       "type": "component",
       "repeatable": false,
       "component": "shared.seo"
+    },
+    "sub_individuals": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::sub-individual.sub-individual"
     }
   }
 }

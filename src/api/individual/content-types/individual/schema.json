@@ -15,13 +15,16 @@
     "Category": {
       "type": "string"
     },
-    "sub_category": {
-      "type": "component",
-      "repeatable": true,
-      "component": "shared.category"
-    },
     "LinkTo": {
       "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "sub_individuals": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::sub-individual.sub-individual"
     }
   }
 }

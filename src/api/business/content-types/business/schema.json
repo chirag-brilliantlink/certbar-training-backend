@@ -18,7 +18,8 @@
         "shared.image-with-button-section",
         "shared.trust-slider",
         "shared.time-course-section",
-        "shared.card-section-with-icon"
+        "shared.content-with-one-section",
+        "shared.content-with-tags-section"
       ]
     },
     "seo": {

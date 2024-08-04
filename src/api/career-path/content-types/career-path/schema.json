@@ -16,7 +16,8 @@
       "type": "dynamiczone",
       "components": [
         "shared.image-with-button-section",
-        "shared.card-section-with-icon"
+        "shared.card-section-with-icon",
+        "shared.courses-section"
       ]
     },
     "seo": {
