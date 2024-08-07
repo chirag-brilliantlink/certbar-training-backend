@@ -1,0 +1,78 @@
+# https://taskfile.dev
+
+version: "3"
+
+includes:
+  vars:
+    taskfile: ./vars.yml
+    optional: true
+
+vars:
+  SSH_CLI: ssh
+  REMOTE_HOST: >-
+    {{ default "deploy@13.233.198.119" .REMOTE_HOST }}
+  STACK: training-strapi
+  IMAGE_NAME: >-
+    {{ default "certbar/training-strapi" .IMAGE_NAME }}
+  IMAGE_TAG:
+    sh: echo ${IMAGE_TAG:-$(git describe --tags --always)}
+  DOCKER_REGISTRY: >-
+    {{ default "" .DOCKER_REGISTRY }}
+  DOCKER_COMPOSE_FILE: docker-compose.deploy.yml
+  # Helpers
+  RUN: >-
+    {{.SSH_CLI}} -T {{.REMOTE_HOST}}
+
+dotenv:
+  - ".env.{{.ENV}}"
+  - "{{.ENV}}.env"
+  - ".env"
+  - "default.env"
+
+tasks:
+  deploy:init:
+    run: once
+    cmds:
+      - >-
+        {{.RUN}} "
+        mkdir -p ~/.docker-compose/{{.STACK}} && 
+        touch ~/.docker-compose/{{.STACK}}/{.env,.env.strapi,.env.redis} && 
+        chmod 750 ~/.docker-compose
+        "
+
+  docker:build:
+    cmds:
+      - >-
+        docker build -f Dockerfile 
+        --label org.opencontainers.image.created="$(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+        --label org.opencontainers.image.revision="$(git describe --tags --always)"
+        -t {{.IMAGE_NAME}}:{{.IMAGE_TAG}} {{.CLI_ARGS}} .
+
+  docker:push:
+    cmds:
+      - defer: ssh -T -o "ControlPath ~/.ssh/cm-%r@%h:%p" -O "exit" {{.REMOTE_HOST}}
+        ignore_error: true
+      - | # https://gist.github.com/scy/6781836
+        {{ if eq .DOCKER_REGISTRY "localhost:5000" }}
+        ssh -f -o ExitOnForwardFailure=yes -o ControlMaster=auto -o "ControlPath ~/.ssh/cm-%r@%h:%p" -N -T -M -L 5000:localhost:5000 {{.REMOTE_HOST}}
+        docker push {{.IMAGE_NAME}}:{{.IMAGE_TAG}}
+        {{ else if .DOCKER_REGISTRY }}
+        docker push {{.IMAGE_NAME}}:{{.IMAGE_TAG}}
+        {{ else }}
+        docker save {{.IMAGE_NAME}}:{{.IMAGE_TAG}} | bzip2 | {{.RUN}} 'docker load'
+        {{ end }}
+
+  deploy:run:
+    cmds:
+      - |
+        export VERSION={{.IMAGE_TAG}}
+        export STRAPI_IMAGE={{.IMAGE_NAME}}:{{.IMAGE_TAG}}
+        envsubst < {{.DOCKER_COMPOSE_FILE}} | {{.RUN}} "cat >~/.docker-compose/{{.STACK}}/docker-compose.yml"
+        {{.RUN}} "cd ~/.docker-compose/{{.STACK}} && docker-compose up -d"
+
+  deploy:
+    cmds:
+      - task: deploy:init
+      - task: docker:build
+      - task: docker:push
+      - task: deploy:run

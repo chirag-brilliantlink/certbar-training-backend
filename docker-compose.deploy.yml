@@ -1,0 +1,54 @@
+version: "3.9"
+
+x-common: &common
+  restart: unless-stopped
+  logging:
+    driver: journald
+
+volumes:
+  strapi_upload:
+  strapi_db:
+  redis:
+
+# Make sure public network is created prior to first deployment
+networks:
+  public:
+    external: true
+  private:
+    external: true
+
+services:
+  strapi:
+    <<: *common
+    image: ${STRAPI_IMAGE}
+    ports:
+      - 1337
+    networks:
+      - public
+      - private
+      - default
+    env_file:
+      - .env.strapi
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.${STACK:-strapi}.rule=Host(`${STRAPI_HOST:?err}`)
+      - traefik.http.routers.${STACK:-strapi}.tls=true
+      - traefik.http.routers.${STACK:-strapi}.entrypoints=http,https
+      - traefik.http.services.${STACK:-strapi}.loadbalancer.server.port=1337
+    volumes:
+      - strapi_upload:/opt/app/public/uploads
+      - strapi_db:/opt/app/.db
+
+  redis:
+    image: bitnami/redis:7.0.4
+    restart: unless-stopped
+    volumes:
+      - redis:/bitnami/redis/data
+    networks:
+      - private
+    ports:
+      - 6379
+    env_file:
+      - .env.redis
+    environment:
+      - REDIS_PASSWORD

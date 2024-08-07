@@ -1,0 +1,14 @@
+version: "3.9"
+
+volumes:
+  redis_data:
+
+# docker-compose up -d
+# docker-compose down -v
+services:
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
