@@ -18,7 +18,7 @@ networks:
     external: true
 
 services:
-  strapi:
+  training-strapi:
     <<: *common
     image: ${STRAPI_IMAGE}
     ports:
@@ -39,7 +39,7 @@ services:
       - strapi_upload:/opt/app/public/uploads
       - strapi_db:/opt/app/.db
 
-  redis:
+  training-redis:
     image: bitnami/redis:7.0.4
     restart: unless-stopped
     volumes:
